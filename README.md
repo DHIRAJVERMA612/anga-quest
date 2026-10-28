@@ -5,7 +5,7 @@ Plain HTML/CSS/JS. No build step, no dependencies, no server.
 
 ## What's inside
 - Simple login (name + 4-digit PIN). First time = creates the profile.
-- 9 levels in 2 worlds: **Robo Land** (AI) and **Shield City** (cyber safety), ending with a boss level.
+- 29 levels in 4 worlds: **Robo Land** and **Brain Lab** (AI), **Shield City** and **Cyber Castle** (cyber safety), with 3 boss fights.
 - Stars (1-3 per level), XP, titles, badges, daily streak, confetti, sound effects.
 - "Read to me" button on every story line (browser voice).
 - Printable certificate after the boss level.
@@ -27,5 +27,10 @@ Open `index.html` in a browser, or run `npx serve .`
 
 ## Add or change levels
 Everything lives in the `LEVELS` array in `app.js`. A level has a character, story lines and stages.
-Stage types: `quiz`, `sort` (two boxes), `password`.
+Stage types: `quiz`, `sort` (two boxes), `order` (tap steps in order), `password`.
 Copy an existing level and edit the text.
+
+## Updating the game later (keeps players' progress)
+- Always add new levels at the **end** of the `LEVELS` array. Never reorder, delete or rename the `id` of existing levels.
+- Keep deploying to the same Vercel project and URL. Progress lives in each browser, tied to the website address.
+- When you change `app.js`, bump the `?v=2` in `index.html` (to `?v=3`, etc.) so browsers load the new file.

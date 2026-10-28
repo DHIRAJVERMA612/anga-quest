@@ -90,7 +90,9 @@ const CH = {
 /* ---------- game content ---------- */
 const WORLDS = [
   { id: 'ai', name: 'Robo Land', sub: 'Learn about AI', emoji: '🤖', color: '#3a86ff' },
-  { id: 'cy', name: 'Shield City', sub: 'Stay safe online', emoji: '🛡️', color: '#2ec27e' }
+  { id: 'cy', name: 'Shield City', sub: 'Stay safe online', emoji: '🛡️', color: '#2ec27e' },
+  { id: 'br', name: 'Brain Lab', sub: 'Smarter with AI', emoji: '🔬', color: '#ff7a2f' },
+  { id: 'cc', name: 'Cyber Castle', sub: 'Be a safety hero', emoji: '🏰', color: '#7b5cff' }
 ];
 
 const LEVELS = [
@@ -318,6 +320,473 @@ const LEVELS = [
         ]
       }
     ]
+  },
+
+  /* =====================================================================
+     NEW LESSONS (levels 10-29). Always ADD new levels at the END of this
+     list so saved progress of existing players is kept.
+     ===================================================================== */
+
+  /* ---- World 3: Brain Lab (AI, deeper) ---- */
+  {
+    id: 'br1', world: 'br', title: 'Pattern Power', char: 'bolt',
+    story: [
+      "Beep boop, Bolt is back! Welcome to the Brain Lab!",
+      "A pattern is something that repeats, like 🔴🔵🔴🔵. AI is VERY good at finding patterns in lots of examples.",
+      "When your phone suggests the next word you type, it noticed a pattern in lots of words. Let's spot patterns too!"
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: 'What comes next?', questions: [
+          { q: '🔴 🔵 🔴 🔵 🔴 ?', o: ['🔵', '🔴', '🟢'], a: 0, why: 'Red, blue, red, blue... next is blue!' },
+          { q: '⭐ ⭐ 🌙 ⭐ ⭐ 🌙 ⭐ ⭐ ?', o: ['⭐', '🌙', '☀️'], a: 1, why: 'Two stars then a moon, again and again.' },
+          { q: '2, 4, 6, 8, ?', o: ['9', '10', '12'], a: 1, why: 'We add 2 every time.' },
+          { q: 'Why are patterns useful to AI?', o: ['They help AI guess what comes next', 'They make AI sleepy', 'They make the screen bright'], a: 0, why: 'Finding patterns lets AI make smart guesses.' }
+        ]
+      },
+      {
+        type: 'sort', intro: 'Is it a pattern?', bins: [{ id: 'yes', label: 'Pattern', emoji: '🔁' }, { id: 'no', label: 'No pattern', emoji: '🎲' }],
+        items: [
+          { t: 'Is this a pattern?', emoji: '🍎🍌🍎🍌', bin: 'yes', why: 'Apple, banana, apple, banana repeats!' },
+          { t: 'Is this a pattern?', emoji: '🐶🚗🌙🍕', bin: 'no', why: 'Nothing repeats here.' },
+          { t: 'Is this a pattern?', emoji: '🔺🔺⬛🔺🔺⬛', bin: 'yes', why: 'Two triangles then a square, again and again.' },
+          { t: 'Is this a pattern?', emoji: '🎈🦋🍩🧩', bin: 'no', why: 'All different, so no pattern.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'br2', world: 'br', title: 'Robot Senses', char: 'pip',
+    story: [
+      "Pip here! Robots do not have eyes and ears like us. They use sensors!",
+      "A camera lets AI 'see'. A microphone lets AI 'hear'. They collect information (data) for the AI to learn from.",
+      "Which sensor does each job need? Let's find out!"
+    ],
+    stages: [
+      {
+        type: 'sort', intro: 'Camera (sees) or microphone (hears)?', bins: [{ id: 'cam', label: 'Camera', emoji: '👁️' }, { id: 'mic', label: 'Microphone', emoji: '👂' }],
+        items: [
+          { t: 'Unlock a phone with your face', emoji: '🙂', bin: 'cam', why: 'The camera looks at your face.' },
+          { t: 'A voice helper hears "Hello!"', emoji: '🗣️', bin: 'mic', why: 'It needs a microphone to hear you.' },
+          { t: 'A self-driving car spots a stop sign', emoji: '🛑', bin: 'cam', why: 'Cameras help cars see signs.' },
+          { t: 'An app names the song that is playing', emoji: '🎵', bin: 'mic', why: 'It listens with the microphone.' },
+          { t: 'An app names a plant from a photo', emoji: '🌿', bin: 'cam', why: 'It looks at the picture.' },
+          { t: 'A talking toy answers you', emoji: '🧸', bin: 'mic', why: 'It listens first, then answers.' }
+        ]
+      },
+      {
+        type: 'quiz', intro: 'Sensor questions!', questions: [
+          { q: 'What is a sensor?', o: ['A part that collects information', 'A kind of snack', 'A battery'], a: 0, why: 'Sensors collect information from the world.' },
+          { q: 'Does AI see pictures exactly like you do?', o: ['No, it turns pictures into numbers and looks for patterns', 'Yes, exactly the same'], a: 0, why: 'AI does not see like us. It finds patterns in numbers.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'br3', world: 'br', title: 'Step by Step', char: 'zara',
+    story: [
+      "Zara here! A computer follows steps, like a recipe.",
+      "A list of steps is called an ALGORITHM (say: AL-go-rith-um).",
+      "Computers do EXACTLY what the steps say, so the ORDER must be right. Let's try!"
+    ],
+    stages: [
+      { type: 'order', intro: 'Tap the steps in the right order!', title: 'Make a sandwich 🥪', steps: ['Take two slices of bread', 'Spread butter or jam', 'Put the slices together', 'Eat and enjoy!'], why: 'Perfect! That is an algorithm.' },
+      { type: 'order', intro: 'Another one!', title: 'Brush your teeth 🪥', steps: ['Put toothpaste on the brush', 'Brush all your teeth', 'Spit out the foam', 'Rinse your mouth'], why: 'Great order!' },
+      {
+        type: 'quiz', intro: 'Quick check!', questions: [
+          { q: 'What is an algorithm?', o: ['A list of steps to do something', 'A cartoon', 'A type of battery'], a: 0, why: 'Yes! Steps that tell a computer what to do.' },
+          { q: 'What if the steps are in the wrong order?', o: ['The result can go wrong', 'Nothing changes', 'It works better'], a: 0, hint: 'Imagine eating the sandwich before making it!', why: 'Order matters a lot to computers.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'br4', world: 'br', title: 'Fair Play AI', char: 'hoot',
+    story: [
+      "Hoo! A kind owl cares about being FAIR.",
+      "If an AI only learns from one kind of example, it may not work well for everyone.",
+      "For example, a voice helper that only heard grown-ups may not understand kids. So people must teach AI with MANY different examples."
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: 'Fairness time!', questions: [
+          { q: 'A voice helper only learned from grown-up voices. What might happen?', o: ['It may not understand kids well', 'It understands everyone perfectly', 'It turns into a robot'], a: 0, why: 'It never heard kid voices, so it gets confused.' },
+          { q: 'How do we make AI fairer?', o: ['Teach it with many different examples', 'Teach it with just one example', 'Switch it off forever'], a: 0, why: 'More variety means fairer AI.' },
+          { q: 'Who must check that AI is fair?', o: ['The people who build and use it', 'The AI alone', 'Nobody'], a: 0, why: 'People are responsible for AI.' },
+          { q: 'Being fair means...', o: ['Everyone gets a good chance', 'Only my friends win', 'Only the loudest wins'], a: 0, why: 'Fair means good chances for everybody.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'br5', world: 'br', title: 'Robot Helpers', char: 'bolt',
+    story: [
+      "Beep! AI helpers can do lots of jobs: vacuum robots, translators, and tools that help doctors look at scans.",
+      "But AI does not truly feel love or sadness. People are best at hugs, kindness and big decisions.",
+      "Who does each job best?"
+    ],
+    stages: [
+      {
+        type: 'sort', intro: 'AI helps, or people do best?', bins: [{ id: 'ai', label: 'AI can help', emoji: '🤖' }, { id: 'people', label: 'People do best', emoji: '❤️' }],
+        items: [
+          { t: 'Sorting thousands of photos quickly', emoji: '📷', bin: 'ai', why: 'Computers are fast at sorting.' },
+          { t: 'Giving a sad friend a hug', emoji: '🤗', bin: 'people', why: 'Hugs and caring come from people.' },
+          { t: 'Cleaning the floor by itself', emoji: '🧹', bin: 'ai', why: 'Vacuum robots do this.' },
+          { t: 'Deciding what is kind and fair', emoji: '⚖️', bin: 'people', why: 'People decide what is right.' },
+          { t: 'Translating a sign into another language', emoji: '🌍', bin: 'ai', why: 'Translation apps are great at this.' },
+          { t: 'Comforting you when you are scared', emoji: '💛', bin: 'people', why: 'Family and friends are the best at this.' }
+        ]
+      },
+      {
+        type: 'quiz', intro: 'One more!', questions: [
+          { q: 'Does AI feel things the way people do?', o: ['No, it does not feel like people do', 'Yes, exactly the same'], a: 0, why: 'AI can sound friendly, but it is a program.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'br6', world: 'br', title: 'AI Artist', char: 'zara',
+    story: [
+      "Wow, AI can make pictures, songs and stories from words!",
+      "But YOU are the real creator: your ideas and your heart. AI is like a fancy paintbrush.",
+      "Be honest if you use AI, and never use it to make mean pictures of anyone."
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: 'Honest creators!', questions: [
+          { q: 'You asked for colour ideas, then drew the picture yourself. Is that fine?', o: ['Yes, the drawing is yours', 'No, never use AI'], a: 0, why: 'Ideas are fine, and you did the drawing.' },
+          { q: 'Can you say an AI-made picture was 100% drawn by you?', o: ['No, be honest about it', 'Yes, always'], a: 0, why: 'Honesty matters, always.' }
+        ]
+      },
+      {
+        type: 'sort', intro: 'Kind use or not okay?', bins: [{ id: 'kind', label: 'Kind use', emoji: '💖' }, { id: 'bad', label: 'Not okay', emoji: '🚫' }],
+        items: [
+          { t: 'Make a card for Grandma', emoji: '🎂', bin: 'kind', why: 'A loving idea!' },
+          { t: 'Make a mean picture of a classmate', emoji: '😠', bin: 'bad', why: 'That would hurt someone.' },
+          { t: 'Get ideas for a story, then write your own', emoji: '📖', bin: 'kind', why: 'You are the author!' },
+          { t: 'Pretend AI work is only yours', emoji: '🙊', bin: 'bad', why: 'That is not honest.' },
+          { t: 'Ask for colour ideas for your drawing', emoji: '🎨', bin: 'kind', why: 'Great way to get inspired.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'br7', world: 'br', title: 'Real or Fake Pictures?', char: 'pip',
+    story: [
+      "Pip here! AI can make very real-looking pictures and videos that are FAKE, like a penguin flying a rocket! 🚀",
+      "So not everything we see online is true. Clues: strange hands, odd shadows, writing that looks wrong.",
+      "When you are not sure, ask a grown-up."
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: 'Be a picture detective!', questions: [
+          { q: 'A video shows a penguin flying a rocket. Is it real?', o: ['Probably made by a computer', 'Definitely real'], a: 0, why: 'Penguins cannot fly rockets!' },
+          { q: 'You see a shocking picture online. What do you do first?', o: ['Share it with everyone', 'Stop and ask a grown-up if it is real', 'Believe it'], a: 1, why: 'Stop, think, ask.' },
+          { q: 'Which can be a clue that a picture is AI-made?', o: ['Odd hands or strange writing', 'It is colourful', 'It is big'], a: 0, why: 'AI often slips up on small details.' },
+          { q: 'Why is sharing fake pictures a problem?', o: ['People can get fooled or hurt', 'It uses more colours', 'Nothing happens'], a: 0, why: 'Fake things can spread and cause trouble.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'br8', world: 'br', title: 'Private Chats', char: 'hoot',
+    story: [
+      "Hoo-hoo! When you chat with an AI helper, remember it is a computer program, not a secret-keeping friend.",
+      "What you type might be saved. So never type your address, phone number, school, passwords or photos of you.",
+      "Always ask a grown-up before using an AI app."
+    ],
+    stages: [
+      {
+        type: 'sort', intro: 'Safe to type, or keep private?', bins: [{ id: 'safe', label: 'Safe to type', emoji: '✅' }, { id: 'private', label: 'Keep private', emoji: '🔒' }],
+        items: [
+          { t: 'Why do cats purr?', emoji: '🐱', bin: 'safe', why: 'A curious question is safe.' },
+          { t: 'My home address', emoji: '🏠', bin: 'private', why: 'Never share where you live.' },
+          { t: 'Ideas for a science project', emoji: '🔬', bin: 'safe', why: 'Great question!' },
+          { t: 'My school name and class', emoji: '🏫', bin: 'private', why: 'That tells people where you are.' },
+          { t: 'My password', emoji: '🔑', bin: 'private', why: 'Passwords are secret keys.' },
+          { t: 'Tell me a joke', emoji: '😂', bin: 'safe', why: 'Jokes are safe!' }
+        ]
+      },
+      {
+        type: 'quiz', intro: 'One more!', questions: [
+          { q: 'Should you ask a grown-up before using a new AI app?', o: ['Yes, always', 'No, never'], a: 0, why: 'A grown-up helps keep you safe.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'br9', world: 'br', title: 'My AI Rules', char: 'bolt',
+    story: [
+      "Beep! Let's write our own AI rules together.",
+      "Good rules keep AI helpful and keep you safe.",
+      "Then I will test you with a tricky 'what do I do?' puzzle."
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: 'Finish the rule!', questions: [
+          { q: 'Ask a ____ before using AI apps.', o: ['grown-up', 'robot', 'pet'], a: 0, why: 'A grown-up keeps you safe.' },
+          { q: 'Be ____ to others, even in chats.', o: ['kind', 'mean', 'sneaky'], a: 0, why: 'Kindness always wins.' },
+          { q: 'AI answers need to be ____.', o: ['checked', 'ignored', 'hidden'], a: 0, why: 'AI can be wrong, so we check.' },
+          { q: 'Your own brain should do the ____.', o: ['thinking', 'sleeping', 'hiding'], a: 0, why: 'AI helps, but you think!' }
+        ]
+      },
+      { type: 'order', intro: 'AI says something strange. What do you do, step by step?', title: 'Strange answer from AI', steps: ['Stop and do not share it', 'Tell a grown-up', 'Check a book or trusted website together', 'Decide together what is true'], why: 'Excellent detective work!' }
+    ]
+  },
+  {
+    id: 'br10', world: 'br', title: 'Mini Boss: Lab Glitch', char: 'glitch', mini: true,
+    story: [
+      "Hee hee! It's GLITCH again! I stole the lab's memory chips!",
+      "You will NEVER get them back! Unless you beat my AI quiz... which is impossible!",
+      "(Show Glitch what you learned in the Brain Lab!)"
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: "Glitch's AI quiz!", questions: [
+          { q: 'What is an algorithm?', o: ['A list of steps', 'A kind of fruit'], a: 0, why: 'Steps for a computer to follow.' },
+          { q: 'AI finds ____ in lots of examples.', o: ['patterns', 'ghosts', 'snacks'], a: 0, why: 'Patterns help AI guess.' },
+          { q: 'A fake-looking video shows a cat on the moon. You...', o: ['Think: could be AI-made. Ask a grown-up', 'Share it at once'], a: 0, why: 'Stop, think, ask.' },
+          { q: 'Which is safe to type to an AI chat?', o: ['Why is the sky blue?', 'My home address'], a: 0, why: 'Keep private things private.' },
+          { q: 'Why must AI learn from MANY examples?', o: ['To be fairer and smarter', 'To be slower'], a: 0, why: 'More variety, fairer AI.' },
+          { q: 'Who is the real creator of your drawing?', o: ['You!', 'The computer'], a: 0, why: 'Your ideas, your heart!' }
+        ]
+      },
+      {
+        type: 'sort', intro: 'Hero move or oops move?', bins: [{ id: 'hero', label: 'Hero move', emoji: '🦸' }, { id: 'oops', label: 'Oops move', emoji: '😬' }],
+        items: [
+          { t: 'Check AI answers with a book', emoji: '📚', bin: 'hero', why: 'Smart!' },
+          { t: 'Tell AI your password', emoji: '🔑', bin: 'oops', why: 'Never share it.' },
+          { t: 'Ask a grown-up before using a new app', emoji: '🙋', bin: 'hero', why: 'Always.' },
+          { t: 'Share a shocking picture without checking', emoji: '📤', bin: 'oops', why: 'It might be fake.' }
+        ]
+      }
+    ]
+  },
+
+  /* ---- World 4: Cyber Castle ---- */
+  {
+    id: 'cc1', world: 'cc', title: 'Lock Your Screen', char: 'hoot',
+    story: [
+      "Welcome to Cyber Castle! A castle needs locked doors, and so do your devices.",
+      "Lock your tablet or computer when you leave it. On shared devices like school computers, always LOG OUT.",
+      "Your device PIN is only for you and your trusted grown-up."
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: 'Lock it up!', questions: [
+          { q: 'You finished on a school computer. What do you do?', o: ['Log out', 'Just walk away', 'Turn up the volume'], a: 0, why: 'Logging out keeps your things private.' },
+          { q: 'Why lock your screen?', o: ['So others cannot use your things', 'It looks pretty', 'It makes it louder'], a: 0, why: 'A lock keeps your stuff safe.' },
+          { q: 'Who should know your device PIN?', o: ['You and your trusted grown-up', 'Everyone', 'Strangers'], a: 0, why: 'Only people you trust.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cc2', world: 'cc', title: 'Safe Apps', char: 'bolt',
+    story: [
+      "Beep! Some apps and games have hidden tricks or too many ads.",
+      "Always ask a grown-up before you download anything, and get apps only from official places.",
+      "Safe choice or risky choice? You decide!"
+    ],
+    stages: [
+      {
+        type: 'sort', intro: 'Safe choice or risky choice?', bins: [{ id: 'safe', label: 'Safe choice', emoji: '✅' }, { id: 'risky', label: 'Risky choice', emoji: '⚠️' }],
+        items: [
+          { t: 'Ask a grown-up before downloading a game', emoji: '🙋', bin: 'safe', why: 'Always ask first!' },
+          { t: 'Download from a pop-up that says FREE!', emoji: '🎁', bin: 'risky', why: 'Pop-up offers are often tricks.' },
+          { t: 'Install from the official app store with a grown-up', emoji: '🏪', bin: 'safe', why: 'Much safer.' },
+          { t: 'Click Allow on everything without reading', emoji: '👆', bin: 'risky', why: 'Read first, then ask.' },
+          { t: 'Check the age rating of a game', emoji: '📜', bin: 'safe', why: 'Ratings tell you who it is for.' },
+          { t: 'Download a game a stranger sent you', emoji: '📨', bin: 'risky', why: 'Never! It could be harmful.' }
+        ]
+      },
+      {
+        type: 'quiz', intro: 'One more!', questions: [
+          { q: 'A game asks to see all your photos. Best move?', o: ['Ask a grown-up first', 'Click yes quickly', 'Ignore everyone'], a: 0, why: 'Let a grown-up decide.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cc3', world: 'cc', title: 'Pop-up Trouble', char: 'zara',
+    story: [
+      "Zara here! Pop-ups are windows that jump onto your screen.",
+      "Some shout 'YOU WON!' or 'Your computer is broken!'. These are tricks.",
+      "Do not click inside them. Close with the X, or ask a grown-up."
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: 'Pop-up patrol!', questions: [
+          { q: 'A pop-up says "Your computer has a virus! Call now!" You...', o: ['Close it and tell a grown-up', 'Call the number', 'Click it'], a: 0, why: 'Scary pop-ups are usually tricks.' },
+          { q: 'A pop-up says "Click for FREE gems!" You...', o: ["Don't click, close it", 'Click fast'], a: 0, why: 'Free gems are a trick.' },
+          { q: 'The close button is tiny and hard to find. Best move?', o: ['Ask a grown-up to help', 'Click the big green button', 'Click everything'], a: 0, why: 'Big buttons can be traps. Ask for help.' },
+          { q: 'Pop-ups that shout and rush you are usually...', o: ['Tricks', 'Presents', 'Homework'], a: 0, why: 'Rushing is a sign of a trick.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cc4', world: 'cc', title: 'Be Kind Online', char: 'pip',
+    story: [
+      "Pip here! The internet is full of real people with real feelings. Kind words matter.",
+      "If someone is mean to you online, it is NEVER your fault.",
+      "Do not answer back, keep the message, show a trusted grown-up, and block that person together."
+    ],
+    stages: [
+      { type: 'order', intro: 'Someone sends a mean message. Tap the steps in order!', title: 'What do you do?', steps: ['Do not answer back', 'Keep the message, do not delete it', 'Show a trusted grown-up', 'Block that person together'], why: 'You handled that like a hero!' },
+      {
+        type: 'quiz', intro: 'Kindness check!', questions: [
+          { q: 'Before you send a message, ask: is it...', o: ['Kind and true', 'Funny at any cost', 'Secret'], a: 0, why: 'Kind and true is the best.' },
+          { q: 'Is being mean online okay if nobody sees?', o: ['No, words can hurt', 'Yes'], a: 0, why: 'Words can hurt, even online.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cc5', world: 'cc', title: 'Spelling Tricks', char: 'bolt',
+    story: [
+      "Beep! Fake websites copy real ones with tiny changes, like 'gooogle' instead of 'google'.",
+      "Always look closely at the spelling. If something looks odd, stop and ask a grown-up.",
+      "Spot the trick names!"
+    ],
+    stages: [
+      {
+        type: 'sort', intro: 'Does the website name look right or tricky?', bins: [{ id: 'right', label: 'Looks right', emoji: '✅' }, { id: 'tricky', label: 'Looks tricky', emoji: '🚨' }],
+        items: [
+          { t: 'wikipedia.org', emoji: '🌐', bin: 'right', why: 'Spelled correctly.' },
+          { t: 'wikipeddia.org', emoji: '🌐', bin: 'tricky', why: 'An extra d! A trick spelling.' },
+          { t: 'youtube.com', emoji: '🌐', bin: 'right', why: 'Spelled correctly.' },
+          { t: 'youtu-be-free-gems.com', emoji: '🌐', bin: 'tricky', why: 'Free gems? Trick!' },
+          { t: 'google.com', emoji: '🌐', bin: 'right', why: 'Spelled correctly.' },
+          { t: 'g00gle.com', emoji: '🌐', bin: 'tricky', why: 'Zeros instead of letter o. Trick!' }
+        ]
+      },
+      {
+        type: 'quiz', intro: 'What would you do?', questions: [
+          { q: 'A website asks you to log in, but the name has a spelling mistake. You...', o: ['Leave and tell a grown-up', 'Log in fast'], a: 0, why: 'Never log in on tricky websites.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cc6', world: 'cc', title: 'Wi-Fi Wisdom', char: 'zara',
+    story: [
+      "Zara here! Wi-Fi at home is like your own garden gate.",
+      "Public Wi-Fi (cafes, airports) is open to everyone, so be extra careful.",
+      "On public Wi-Fi do not log in to important accounts or share secrets. Always ask a grown-up first."
+    ],
+    stages: [
+      {
+        type: 'sort', intro: 'Okay on public Wi-Fi, or wait for safe Wi-Fi?', bins: [{ id: 'ok', label: 'Okay', emoji: '👍' }, { id: 'wait', label: 'Wait for safe Wi-Fi', emoji: '✋' }],
+        items: [
+          { t: 'Watch a cartoon with a grown-up', emoji: '📺', bin: 'ok', why: 'Fine with a grown-up nearby.' },
+          { t: 'Log in to a money account', emoji: '💰', bin: 'wait', why: 'Too risky on public Wi-Fi.' },
+          { t: 'Type your passwords', emoji: '🔑', bin: 'wait', why: 'Wait for a safe network.' },
+          { t: 'Read a story or article', emoji: '📖', bin: 'ok', why: 'Reading is fine.' },
+          { t: 'Share your home address', emoji: '🏠', bin: 'wait', why: 'Never share it.' }
+        ]
+      },
+      {
+        type: 'quiz', intro: 'One more!', questions: [
+          { q: 'Who should connect your device to a new Wi-Fi?', o: ['A trusted grown-up', 'Anyone nearby', 'A stranger'], a: 0, why: 'A grown-up knows what is safe.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cc7', world: 'cc', title: 'Think Before You Post', char: 'hoot',
+    story: [
+      "Hoo! Things you post can stay online for a very long time, even if you delete them.",
+      "Before posting, always ask a grown-up and think: Is it kind? Is it true? Does it show private things?",
+      "Let's sort what is okay to post."
+    ],
+    stages: [
+      {
+        type: 'sort', intro: 'Okay to post (with a grown-up OK), or do not post?', bins: [{ id: 'ok', label: 'Okay to post', emoji: '👍' }, { id: 'no', label: 'Do not post', emoji: '🛑' }],
+        items: [
+          { t: 'A drawing you made', emoji: '🎨', bin: 'ok', why: 'Share your art with a grown-up OK!' },
+          { t: 'A photo showing your house number', emoji: '🏠', bin: 'no', why: 'It shows where you live.' },
+          { t: 'A mean joke about a friend', emoji: '😠', bin: 'no', why: 'It would hurt them.' },
+          { t: 'A picture of your pet', emoji: '🐶', bin: 'ok', why: 'Cute and safe.' },
+          { t: 'Where you are on holiday right now', emoji: '✈️', bin: 'no', why: 'Share later, not live.' },
+          { t: 'A kind comment', emoji: '💬', bin: 'ok', why: 'Kindness is great.' }
+        ]
+      },
+      {
+        type: 'quiz', intro: 'Quick check!', questions: [
+          { q: 'You delete a post. Is it gone forever?', o: ['Not always, others may have saved it', 'Yes, always'], a: 0, why: 'Think before you post!' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cc8', world: 'cc', title: 'Computer Germs', char: 'pip',
+    story: [
+      "Pip here! A computer virus is a bad program that can mess up a device.",
+      "It is not like a cold, but it can spread through bad downloads and mystery links.",
+      "Updates and security programs (that a grown-up installs) help keep devices healthy."
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: 'Keep devices healthy!', questions: [
+          { q: 'Which helps protect a device?', o: ['Updates and security software', 'Never turning it on', 'Covering the screen'], a: 0, why: 'Updates fix weak spots.' },
+          { q: 'What can bring a virus?', o: ['Mystery downloads and links', 'A clean screen', 'A mouse pad'], a: 0, why: 'Do not click mystery links.' },
+          { q: 'You find a USB stick on the road. Do you plug it in?', o: ['No, give it to a grown-up', 'Yes, to see'], a: 0, why: 'It could carry a virus.' },
+          { q: 'Updates are like...', o: ['A health check-up for your device', 'A bad trick', 'A snack'], a: 0, why: 'They fix problems and keep it healthy.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cc9', world: 'cc', title: 'Backup Hero', char: 'bolt',
+    story: [
+      "Beep! Devices can break or get lost.",
+      "A BACKUP is a copy of your important things (like drawings) in a second safe place.",
+      "Then if something goes wrong, you do not lose your treasure!"
+    ],
+    stages: [
+      { type: 'order', intro: 'Back up your drawings. Tap the steps in order!', title: 'Backup steps', steps: ['Ask a grown-up to help', 'Pick the files you love', 'Copy them to a safe place', 'Check that the copy opens'], why: 'Treasure saved!' },
+      {
+        type: 'quiz', intro: 'Quick check!', questions: [
+          { q: 'What is a backup?', o: ['A copy in a safe place', 'A bag', 'A deleted file'], a: 0, why: 'A second copy keeps things safe.' },
+          { q: 'Why make backups?', o: ['If something breaks, you still have it', 'For no reason', 'To make it slower'], a: 0, why: 'Backups save your treasure.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cc10', world: 'cc', title: 'Final Boss: Glitch Returns!', char: 'glitch', final: true,
+    story: [
+      "I'M BAAACK! And this time I have a MEGA-GLITCH army!",
+      "You beat me once, but ALL your lessons together? Impossible!",
+      "(This is the big one, hero. Use everything you learned about AI and online safety!)"
+    ],
+    stages: [
+      {
+        type: 'quiz', intro: 'Mega-Glitch quiz!', questions: [
+          { q: 'AI learns from...', o: ['Examples (data)', 'Magic'], a: 0, why: 'Examples!' },
+          { q: 'AI says something odd. You...', o: ['Check with a grown-up or a book', 'Believe it'], a: 0, why: 'AI can be wrong.' },
+          { q: 'A fake-looking video goes viral. You...', o: ['Stop and ask a grown-up', 'Share it'], a: 0, why: 'Do not spread fakes.' },
+          { q: 'Which password is strongest?', o: ['BlueMango!Rocket7', 'anga123'], a: 0, why: 'Long and mixed.' },
+          { q: 'A pop-up says YOU WON! You...', o: ['Close it and tell a grown-up', 'Click it'], a: 0, why: 'Classic trick.' },
+          { q: 'A mean message arrives. First step?', o: ['Do not answer back', 'Send a meaner one'], a: 0, why: 'Do not reply, show a grown-up.' },
+          { q: 'You finished on a shared computer. You...', o: ['Log out', 'Leave it open'], a: 0, why: 'Always log out.' },
+          { q: 'What is a backup?', o: ['A safe copy of your files', 'A kind of virus'], a: 0, why: 'Safe copy = safe treasure.' }
+        ]
+      },
+      {
+        type: 'sort', intro: 'Hero move or oops move?', bins: [{ id: 'hero', label: 'Hero move', emoji: '🦸' }, { id: 'oops', label: 'Oops move', emoji: '😬' }],
+        items: [
+          { t: 'Tell a grown-up when something feels weird', emoji: '🗣️', bin: 'hero', why: 'Always!' },
+          { t: 'Download a game a stranger sent', emoji: '📨', bin: 'oops', why: 'Never.' },
+          { t: 'Check AI answers with a book', emoji: '📚', bin: 'hero', why: 'Smart!' },
+          { t: 'Post where you are right now', emoji: '📍', bin: 'oops', why: 'Keep locations private.' },
+          { t: 'Be kind online', emoji: '💖', bin: 'hero', why: 'Kindness wins.' },
+          { t: 'Log in on a tricky spelled website', emoji: '🌐', bin: 'oops', why: 'It could be fake.' }
+        ]
+      },
+      { type: 'order', intro: 'Something weird pops up on the screen. Tap the steps in order!', title: 'Weird pop-up!', steps: ['Do not click it', 'Close it or turn off the screen', 'Tell a trusted grown-up', 'Check together what happened'], why: 'MEGA hero move! Glitch is defeated!' }
+    ]
   }
 ];
 
@@ -327,9 +796,13 @@ const BADGES = [
   { id: 'ai', e: '🤖', n: 'AI Explorer', test: u => LEVELS.filter(l => l.world === 'ai').every(l => u.stars[l.id]) },
   { id: 'cy', e: '🛡️', n: 'Cyber Guardian', test: u => LEVELS.filter(l => l.world === 'cy' && !l.boss).every(l => u.stars[l.id]) },
   { id: 'streak', e: '🔥', n: '3-Day Streak', test: u => u.streak >= 3 },
-  { id: 'hero', e: '🏆', n: 'Glitch Beater', test: u => !!u.stars.boss }
+  { id: 'hero', e: '🏆', n: 'Glitch Beater', test: u => !!u.stars.boss },
+  { id: 'brlab', e: '🔬', n: 'Brain Lab Master', test: u => LEVELS.filter(l => l.world === 'br').every(l => u.stars[l.id]) },
+  { id: 'castle', e: '🏰', n: 'Castle Defender', test: u => LEVELS.filter(l => l.world === 'cc').every(l => u.stars[l.id]) },
+  { id: 'stars40', e: '🌟', n: 'Star Collector', test: u => Object.values(u.stars).reduce((a, b) => a + b, 0) >= 40 },
+  { id: 'master', e: '👑', n: 'Master of Everything', test: u => !!u.stars.cc10 }
 ];
-const TITLES = [[0, 'Rookie 🐣'], [50, 'Explorer 🧭'], [120, 'Agent 🕵️'], [220, 'Guardian 🛡️'], [350, 'Hero 🦸']];
+const TITLES = [[0, 'Rookie 🐣'], [50, 'Explorer 🧭'], [120, 'Agent 🕵️'], [220, 'Guardian 🛡️'], [350, 'Hero 🦸'], [600, 'Legend 🌟'], [900, 'Master 👑']];
 const TIPS = [
   'AI learns from examples, just like you learn from practice!',
   'A strong password is long and has capitals, numbers and symbols.',
@@ -407,7 +880,7 @@ function home() {
   view(`${header()}
   <section class="hero card"><div class="bob">${CH.pip.svg}</div><div class="txt">
     <div class="bubble"><div class="who2">${CH.pip.short}</div>Hi ${esc(user.name)}! ${next ? `Ready for <b>${esc(next.title)}</b>?` : 'You finished everything! Play any level again for 3 stars!'}<br><span class="small">💡 ${esc(tip)}</span></div>
-    <div class="row" style="margin-top:12px">${next ? `<button class="btn big" id="cont">▶ Play next level</button>` : ''}${user.stars.boss ? `<button class="btn big purple" id="cert">🎓 My certificate</button>` : ''}</div></div></section>
+    <div class="row" style="margin-top:12px">${next ? `<button class="btn big" id="cont">▶ Play next level</button>` : ''}${user.stars.boss ? `<button class="btn big purple" id="cert">🎓 My certificate</button>` : ''}${user.stars.cc10 ? `<button class="btn big pink" id="cert2">👑 Master certificate</button>` : ''}</div></div></section>
   ${WORLDS.map(w => {
     const ls = LEVELS.filter(l => l.world === w.id), done = ls.filter(l => user.stars[l.id]).length;
     return `<section class="world" style="--wc:${w.color}"><h2>${w.emoji} ${w.name} <small class="small">${w.sub}</small><div class="bar"><i style="width:${done / ls.length * 100}%"></i></div></h2><div class="nodes">
@@ -420,7 +893,8 @@ function home() {
   $('#mute').onclick = toggleMute;
   $('#out').onclick = () => { localStorage.removeItem(SES); user = null; login(); };
   if ($('#cont')) $('#cont').onclick = () => enter(next.id);
-  if ($('#cert')) $('#cert').onclick = certificate;
+  if ($('#cert')) $('#cert').onclick = () => certificate('boss');
+  if ($('#cert2')) $('#cert2').onclick = () => certificate('final');
   $$('.node').forEach(n => n.onclick = () => { const l = LEVELS[levelIdx(n.dataset.id)]; if (!unlocked(levelIdx(l.id))) { sfx('bad'); shake(n); return; } enter(l.id); });
 }
 
@@ -443,7 +917,7 @@ function runStage() {
   const st = L.lvl.stages[L.stage];
   view(`${topbar()}<div id="stage" class="card"></div>`);
   $('#back').onclick = () => { if (confirm('Leave this level? Your oops count will restart.')) home(); };
-  ({ quiz: runQuiz, sort: runSort, password: runPassword })[st.type](st);
+  ({ quiz: runQuiz, sort: runSort, password: runPassword, order: runOrder })[st.type](st);
 }
 function nextStage() { L.stage++; sfx('star'); runStage(); }
 function head(t) { return `<div class="shead"><div class="mini bob">${CH[L.lvl.char].svg}</div><div class="bubble sm">${esc(t)}</div></div>`; }
@@ -482,6 +956,18 @@ function runSort(st) {
   };
   draw();
 }
+function runOrder(st) {
+  const steps = st.steps; let n = 0;
+  const opts = shuffle(steps.map((t, k) => ({ t, k })));
+  $('#stage').innerHTML = `${head(st.intro)}<h2 class="q">${esc(st.title)}</h2><div class="count">Tap them in the right order: 1, 2, 3...</div>
+    <div class="opts" style="margin-top:10px">${opts.map(o => `<button class="opt" data-k="${o.k}"><b class="ordn"></b>${esc(o.t)}</button>`).join('')}</div><div id="fb" class="fb"></div>`;
+  $$('.opt').forEach(b => b.onclick = () => {
+    if (+b.dataset.k === n) {
+      n++; b.classList.add('good'); b.disabled = true; $('.ordn', b).textContent = n + '. '; sfx('click');
+      if (n === steps.length) { sfx('good'); fbOk(st.why || 'Perfect order!', nextStage); }
+    } else { shake(b); fbBad('Not that one yet. Which step comes next?'); }
+  });
+}
 function pwChecks(p) {
   return [['At least 10 characters', p.length >= 10], ['A CAPITAL letter', /[A-Z]/.test(p)], ['A small letter', /[a-z]/.test(p)],
   ['A number', /\d/.test(p)], ['A symbol like ! @ # $ ?', /[^A-Za-z0-9]/.test(p)],
@@ -510,27 +996,30 @@ function finish() {
   const nb = BADGES.filter(b => !user.badges.includes(b.id) && b.test(user)); nb.forEach(b => user.badges.push(b.id));
   save();
   const i = levelIdx(id), nxt = LEVELS[i + 1], leveled = titleFor(user.xp) !== oldTitle;
+  const lvl = L.lvl, bossy = lvl.boss || lvl.mini || lvl.final;
   view(`<div class="result card"><div class="bob">${CH[L.lvl.char].svg.replace('<svg', '<svg class="mascot"')}</div>
-    <h1>${L.lvl.boss ? 'You beat Glitch! 🎉' : 'Level complete! 🎉'}</h1>
+    <h1>${bossy ? 'You beat Glitch! 🎉' : 'Level complete! 🎉'}</h1>
     <div class="starsrow">${[1, 2, 3].map(k => `<span style="animation-delay:${k * 0.25}s">${k <= s ? '⭐' : '☆'}</span>`).join('')}</div>
     <p>${s === 3 ? 'PERFECT! No oops at all!' : s === 2 ? 'Great job!' : 'Good try! Play again for more stars.'}</p>
     <div class="xpgain">+${gain} XP</div>
     ${leveled ? `<p><b>New title: ${titleFor(user.xp)}</b></p>` : ''}
     ${nb.map(b => `<span class="newb pop">${b.e} New badge: ${b.n}</span>`).join('')}
     <div class="row" style="justify-content:center;margin-top:16px">
-      ${L.lvl.boss ? `<button class="btn big purple" id="cert">🎓 Get my certificate</button>` : (nxt ? `<button class="btn big green" id="nextl">Next level ▶</button>` : '')}
+      ${lvl.boss ? `<button class="btn big purple" id="cert">🎓 Get my certificate</button>` : ''}${lvl.final ? `<button class="btn big pink" id="cert2">👑 Master certificate</button>` : ''}${nxt && !lvl.final ? `<button class="btn big green" id="nextl">Next level ▶</button>` : ''}
       ${s < 3 ? `<button class="btn ghost" id="again">🔁 Try for 3 stars</button>` : ''}<button class="btn ghost" id="map">🗺️ Map</button></div></div>`);
   confetti(); sfx('win'); if (s === 3) setTimeout(() => sfx('win'), 700);
   $('#map').onclick = home;
   if ($('#nextl')) $('#nextl').onclick = () => enter(nxt.id);
   if ($('#again')) $('#again').onclick = () => enter(id);
-  if ($('#cert')) $('#cert').onclick = certificate;
+  if ($('#cert')) $('#cert').onclick = () => certificate('boss');
+  if ($('#cert2')) $('#cert2').onclick = () => certificate('final');
 }
-function certificate() {
+function certificate(kind = 'boss') {
   const d = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+  const fin = kind === 'final';
   view(`<div class="cert card"><div>${['bolt', 'pip', 'zara', 'hoot'].map(k => CH[k].svg).join('')}</div>
-    <h1>🎓 Certificate of Awesomeness</h1><p>This proudly says that</p><div class="nm">${esc(user.name)}</div>
-    <p>learned about <b>AI</b> and how to stay <b>safe online</b>,<br>and defeated Glitch the Gremlin!</p><p><b>Title: ${titleFor(user.xp)}</b> · ${totalStars()} ⭐ · ${d}</p></div>
+    <h1>${fin ? '👑 Master Certificate' : '🎓 Certificate of Awesomeness'}</h1><p>This proudly says that</p><div class="nm">${esc(user.name)}</div>
+    <p>${fin ? 'finished <b>all 29 lessons</b> of Anga\'s Quest, mastered <b>AI</b> and <b>online safety</b>,<br>and defeated Glitch the Gremlin TWICE!' : 'learned about <b>AI</b> and how to stay <b>safe online</b>,<br>and defeated Glitch the Gremlin!'}</p><p><b>Title: ${titleFor(user.xp)}</b> · ${totalStars()} ⭐ · ${d}</p></div>
     <div class="row noprint" style="justify-content:center"><button class="btn purple" id="pr">🖨️ Print</button><button class="btn ghost" id="map">🗺️ Map</button></div>`);
   confetti(); sfx('win');
   $('#pr').onclick = () => window.print(); $('#map').onclick = home;
